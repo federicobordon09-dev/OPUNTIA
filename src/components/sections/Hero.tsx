@@ -1,19 +1,19 @@
-import { site } from "@/data/site";
+import Image from "next/image";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-end overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-verde-profundo/20 via-verde-profundo/10 to-verde-profundo/60" />
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "url('/images/hero.jpg')",
-          backgroundColor: "#33482B",
-        }}
+      <div className="absolute inset-0 bg-gradient-to-b from-verde-profundo/30 via-verde-profundo/15 to-verde-profundo/70 z-10" />
+      <Image
+        src="/images/torta-chocolate-vista-montana.jpg"
+        alt="Porción de torta de chocolate con vista a la Cordillera de los Andes desde la casa de té Opuntia"
+        fill
+        className="object-cover object-[center_30%]"
+        priority
+        sizes="100vw"
       />
-      <div className="container-page relative z-10 w-full pb-12 sm:pb-16 lg:pb-24">
+      <div className="container-page relative z-20 w-full pb-12 sm:pb-16 lg:pb-24">
         <div className="max-w-2xl">
           <span className="mb-4 inline-block rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
             Casa de té y pastelería artesanal

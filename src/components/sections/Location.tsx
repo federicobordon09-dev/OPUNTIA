@@ -113,7 +113,7 @@ export default function Location() {
             <div className="h-[400px] overflow-hidden rounded-2xl border border-verde-cactus/10 lg:h-full lg:min-h-[500px]">
               <iframe
                 title="Ubicación de Opuntia Casa de Té"
-                src={`https://www.google.com/maps/embed/v1/place?key=&q=${site.address.coordinates.lat},${site.address.coordinates.lng}&center=${site.address.coordinates.lat},${site.address.coordinates.lng}&zoom=14`}
+                src={`https://maps.google.com/maps?q=${site.address.coordinates.lat},${site.address.coordinates.lng}&hl=es&z=15&output=embed`}
                 className="size-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

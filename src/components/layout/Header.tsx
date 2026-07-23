@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { site } from "@/data/site";
 
 const nav = [
@@ -17,8 +18,17 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-verde-cactus/10 bg-crema/90 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between">
-        <a href="#" className="font-serif text-xl font-semibold text-verde-profundo">
-          {site.name}
+        <a href="#" className="flex items-center gap-2">
+          <Image
+            src="/images/logo_opuntia.jpg"
+            alt="Opuntia Casa de Té"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
+          <span className="font-serif text-xl font-semibold text-verde-profundo">
+            {site.name}
+          </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

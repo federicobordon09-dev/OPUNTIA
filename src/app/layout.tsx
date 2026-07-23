@@ -33,6 +33,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: site.fullName }],
   metadataBase: new URL(site.url),
+  icons: {
+    icon: "/images/logo_opuntia.jpg",
+    apple: "/images/logo_opuntia.jpg",
+  },
   openGraph: {
     title: `${site.fullName} – ${site.tagline}`,
     description:

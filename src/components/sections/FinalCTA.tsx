@@ -27,7 +27,6 @@ export default function FinalCTA() {
               <WhatsAppButton
                 variant="primary"
                 label="Reservar por WhatsApp"
-                className="bg-white text-verde-profundo hover:bg-white/90 hover:shadow-white/25"
               />
               <a
                 href={site.instagramUrl}
