@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import { site } from "@/data/site";
+import SplashScreen from "@/components/ui/SplashScreen";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -132,6 +133,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen">
+        <SplashScreen />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-verde-cactus focus:px-6 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none"
