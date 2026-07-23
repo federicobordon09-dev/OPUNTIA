@@ -22,8 +22,8 @@ export const site = {
     country: "Argentina",
     full: "Ruta Provincial 94, km 15, camino al Manzano Histórico, Los Chacayes, Tunuyán, Mendoza, Argentina",
     mapsQuery: "Opuntia+Casa+de+Té+Tunuyán",
-    mapsUrl: "https://maps.google.com/?q=-33.60161,-69.29792",
-    coordinates: { lat: -33.60161, lng: -69.29792 },
+    mapsUrl: "https://maps.app.goo.gl/ZqpBxikedeZwGPJ59",
+    coordinates: { lat: -33.601613, lng: -69.297924 },
   },
   hours: {
     general: "Sábados, domingos y feriados",
