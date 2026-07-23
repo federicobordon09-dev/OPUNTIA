@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-crema: #F6F1E7;
+  --color-verde-cactus: #5F7F4A;
+  --color-verde-profundo: #33482B;
+  --color-terracota: #C97B4A;
+  --color-rosa-opuntia: #D97BA6;
+  --color-marron-madera: #7A5638;
+  --color-marron-claro: #A67B5B;
+
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-crema text-verde-profundo font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-verde-cactus/20 text-verde-profundo;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
