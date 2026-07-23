@@ -82,7 +82,7 @@ export default function Gallery() {
           <Reveal key={img.src} delay={i * 80}>
             <button
               onClick={() => setLightbox(i)}
-              className={`group relative overflow-hidden rounded-2xl w-full text-left ${img.aspect} aspect-[3/4] sm:aspect-auto`}
+              className={`group relative overflow-hidden rounded-2xl w-full text-left ${img.aspect} aspect-square sm:aspect-auto`}
             >
               <Image
                 src={img.src}
@@ -103,17 +103,17 @@ export default function Gallery() {
       {lightbox !== null && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
-          onClick={closeLightbox}
+          onClick={(e) => { if (e.target === e.currentTarget) closeLightbox(); }}
           role="dialog"
           aria-modal="true"
           aria-label="Vista ampliada de la galería"
         >
           <button
             onClick={closeLightbox}
-            className="absolute right-4 top-4 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            className="absolute right-4 top-4 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 max-sm:right-2 max-sm:top-2 max-sm:size-8"
             aria-label="Cerrar galería"
           >
-            <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg className="size-6 max-sm:size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="18" y1="6" x2="6" y2="18" />
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -126,10 +126,10 @@ export default function Gallery() {
                 (lightbox - 1 + gallery.length) % gallery.length
               );
             }}
-            className="absolute left-4 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            className="absolute left-4 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 max-sm:left-2 max-sm:size-8"
             aria-label="Imagen anterior"
           >
-            <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg className="size-6 max-sm:size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </button>
@@ -139,18 +139,15 @@ export default function Gallery() {
               e.stopPropagation();
               setLightbox((lightbox + 1) % gallery.length);
             }}
-            className="absolute right-4 bottom-20 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            className="absolute right-4 bottom-20 z-10 flex size-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 max-sm:right-2 max-sm:bottom-16 max-sm:size-8"
             aria-label="Imagen siguiente"
           >
-            <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg className="size-6 max-sm:size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="9 18 15 12 9 6" />
             </svg>
           </button>
 
-          <div
-            className="relative size-full max-h-[90vh] max-w-[90vw]"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative size-full max-h-[90vh] max-w-[90vw]">
             <Image
               src={gallery[lightbox].src}
               alt={gallery[lightbox].alt}
@@ -161,7 +158,7 @@ export default function Gallery() {
             />
           </div>
 
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center text-sm text-white/80">
+          <p className="absolute bottom-4 left-4 right-4 text-center text-sm text-white/80 max-sm:text-xs">
             {gallery[lightbox].alt}
           </p>
         </div>

@@ -6,7 +6,7 @@ export default function InfoBar() {
     <section className="border-b border-verde-cactus/10 bg-white/50">
       <div className="container-page">
         <div className="flex flex-col items-center justify-between gap-4 py-4 sm:flex-row sm:gap-6">
-          <div className="flex flex-wrap items-center gap-4 text-xs sm:gap-6 sm:text-sm">
+          <div className="flex flex-wrap items-center gap-3 text-xs sm:gap-6 sm:text-sm max-sm:flex-col max-sm:items-start">
             <div className="flex items-center gap-2 text-marron-madera">
               <svg className="size-4 shrink-0 text-verde-cactus" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />

@@ -15,10 +15,18 @@ const nav = [
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-verde-cactus/10 bg-crema/90 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="flex cursor-pointer items-center gap-2"
+        >
           <Image
             src="/images/logo_opuntia.jpg"
             alt="Opuntia Casa de Té"
@@ -29,17 +37,17 @@ export default function Header() {
           <span className="font-serif text-xl font-semibold text-verde-profundo">
             {site.name}
           </span>
-        </a>
+        </button>
 
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
-            <a
+            <button
               key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-marron-madera transition-colors hover:text-verde-cactus"
+              onClick={() => scrollTo(item.href.replace("#", ""))}
+              className="cursor-pointer text-sm font-medium text-marron-madera transition-colors hover:text-verde-cactus"
             >
               {item.label}
-            </a>
+            </button>
           ))}
           <a
             href={site.whatsappLink}
@@ -81,14 +89,16 @@ export default function Header() {
         <nav className="border-t border-verde-cactus/10 bg-crema px-4 pb-6 pt-4 md:hidden">
           <div className="flex flex-col gap-4">
             {nav.map((item) => (
-              <a
+              <button
                 key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="text-sm font-medium text-marron-madera transition-colors hover:text-verde-cactus"
+                onClick={() => {
+                  scrollTo(item.href.replace("#", ""));
+                  setOpen(false);
+                }}
+                className="cursor-pointer text-left text-sm font-medium text-marron-madera transition-colors hover:text-verde-cactus"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
             <a
               href={site.whatsappLink}

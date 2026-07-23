@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
@@ -9,7 +11,7 @@ export default function Hero() {
         src="/images/torta-chocolate-vista-montana.jpg"
         alt="Porción de torta de chocolate con vista a la Cordillera de los Andes desde la casa de té Opuntia"
         fill
-        className="object-cover object-[center_30%]"
+        className="object-cover object-[center_30%] max-sm:object-center"
         priority
         sizes="100vw"
       />
@@ -29,12 +31,12 @@ export default function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <WhatsAppButton variant="primary" />
-            <a
-              href="#experiencia"
-              className="rounded-full border-2 border-white/40 px-8 py-4 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
+            <button
+              onClick={() => document.getElementById("experiencia")?.scrollIntoView({ behavior: "smooth" })}
+              className="cursor-pointer rounded-full border-2 border-white/40 px-8 py-4 text-sm font-semibold text-white transition-all hover:border-white hover:bg-white/10"
             >
               Descubrir más
-            </a>
+            </button>
           </div>
           <div className="mt-6 flex items-center gap-4 text-xs text-white/70">
             <span className="flex items-center gap-1.5">

@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     icon: "/images/logo_opuntia.jpg",
     apple: "/images/logo_opuntia.jpg",
   },
+  alternates: {
+    canonical: site.url,
+  },
   openGraph: {
     title: `${site.fullName} – ${site.tagline}`,
     description:
@@ -45,12 +48,21 @@ export const metadata: Metadata = {
     siteName: site.fullName,
     locale: "es_AR",
     type: "website",
+    images: [
+      {
+        url: "/images/torta-chocolate-vista-montana.jpg",
+        width: 1440,
+        height: 1920,
+        alt: "Porción de torta de chocolate con vista a la Cordillera de los Andes en Opuntia Casa de Té",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.fullName} – ${site.tagline}`,
     description:
       "Té en hebras, tortas caseras y la mejor vista del Valle de Uco. Sábados, domingos y feriados con reserva previa.",
+    images: ["/images/torta-chocolate-vista-montana.jpg"],
   },
   robots: {
     index: true,
@@ -71,7 +83,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="es-AR" className={`${fraunces.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -119,7 +131,15 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-verde-cactus focus:px-6 focus:py-3 focus:text-sm focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none"
+        >
+          Saltar al contenido principal
+        </a>
+        <main id="main-content">{children}</main>
+      </body>
     </html>
   );
 }
